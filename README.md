@@ -1,6 +1,6 @@
 # button-to-d3
  
-Python and Node.js ways to manage and arduino and a web server for ambient displays.
+Python and Node.js ways to manage arduino and a web server for ambient displays.
 
 You can use the web server stuff and put your own displays/arduino content.
 
@@ -17,13 +17,23 @@ Both the Python and Node.js solutions use Firmata to talk with the arduino.
 
 That's it! Your scripts can now talk with the board. 
 
+The Node.JS script uses a library called [Johnny-Five](http://johnny-five.io/)
+The pyhton script uses a library called [pyfirmata](https://pyfirmata.readthedocs.io/en/latest/)
+
+Johnny Five is a great high level library that feels like the javascript version of Arduino code.
+PyFirmata is lower level, dealing specfically with input and output from pins. 
+
+If using the dataset in many ways is important, I'd recommend using the pyhton script and making good use of pandas.
+If using Arduino components in many ways is imporatnt, I'd recommend using Node.JS - even if you aren't using a web display, the whole thing works.
+
 _A quick note_:
 The Node.JS script works with firmata from the get go, as long as the borad is plugged in and has StandardFirmataPlus it will work
 The python script will need you to specify the usb port your borad is plugged into. It's the same port that you connect to on the Arduino IDE
 
 ![Diagram for the button](http://johnny-five.io/img/breadboard/button.png)
 
-Here's how to setup the board for the button. 
+
+Here's how to setup the board for the button. [Taken from the button tutorial from Johnny-Five](http://johnny-five.io/examples/button/)
 When the button is pushed pin 2 will get 5V.
 
 ##### For Python
