@@ -8,7 +8,7 @@ This example uses an arduino button to change the radius of a d3 circle.
 
 You don't need to use d3 for the general system to work, it's just being used in this example.
 
-### How to Setup and USe
+### How to Setup and Use
 ##### Setup Arduino
 Both the Python and Node.js solutions use Firmata to talk with the arduino. 
 
