@@ -1,14 +1,17 @@
-const { csvFormatValue } = require('d3');
+// Express for server
+// Johnny-five for arduino
 const express = require('express');
 const five = require('johnny-five');
 
+// Sets our express
 const app = express();
 const port = 3000;
 
-
+// Counts two buttons, red and yellow
 var rvalue = 0;
 var yvalue = 0;
 
+// Sets the headers for the requests
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
@@ -28,32 +31,36 @@ app.use(function (req, res, next) {
     next();
 });
 
+//Sends the data from a get request
 app.get('/', (req, res) => {
   res.json({v:[rvalue,yvalue]});
 });
 
+// Listen at the port (3000 for us)
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 });
 
+
+// Initilize board
 board = new five.Board();
 
+// If board is there
 board.on("ready", function() {
 
-    // Create a new `button` hardware instance.
-    // This example allows the button module to
-    // create a completely default instance
+    // Create new `button`s hardware instance.
     const rbutton = new five.Button(2);
     const ybutton = new five.Button(4);
+
     // Inject the `button` hardware into
     // the Repl instance's context;
     // allows direct command line access
+    // Used to console log
     board.repl.inject({
       button: rbutton
     });
   
-    // Button Event API 
-  
+    
     // "down" the button is pressed
     rbutton.on("down", function() {
       rvalue += 1;
