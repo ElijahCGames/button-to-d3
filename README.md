@@ -17,14 +17,12 @@ Both the Python and Node.js solutions use Firmata to talk with the arduino.
 
 That's it! Your scripts can now talk with the board. 
 
-The Node.JS script uses a library called [Johnny-Five](http://johnny-five.io/)
-The pyhton script uses a library called [pyfirmata](https://pyfirmata.readthedocs.io/en/latest/)
-
-Johnny Five is a great high level library that feels like the javascript version of Arduino code.
-PyFirmata is lower level, dealing specfically with input and output from pins. 
-
-If using the dataset in many ways is important, I'd recommend using the pyhton script and making good use of pandas.
-If using Arduino components in many ways is imporatnt, I'd recommend using Node.JS - even if you aren't using a web display, the whole thing works.
+* The Node.JS script uses a library called [Johnny-Five](http://johnny-five.io/)
+  * Johnny Five is a great high level library that feels like the javascript version of Arduino code.
+  * If using Arduino components in many ways is imporatnt, I'd recommend using Node.JS with J5 - even if you aren't using a web display, the whole thing works.
+* The pyhton script uses a library called [pyfirmata](https://pyfirmata.readthedocs.io/en/latest/)
+  * PyFirmata is lower level, dealing specfically with input and output from pins. 
+  * If using the dataset in many ways is important, I'd recommend using the pyhton script and making good use of pandas
 
 _A quick note_:
 The Node.JS script works with firmata from the get go, as long as the borad is plugged in and has StandardFirmataPlus it will work
@@ -56,7 +54,7 @@ When you press or hold down the button
 ### Troublehshooting
 
 * Make sure your board is plugged in properly and you can select the port in the Arduino IDE.
-* * This is important, neither script will work if the board is not plugged in.
+  * This is important, neither script will work if the board is not plugged in.
 * You might've put buttons in the wrong pins, check to see that one button is in pin 2, and if you have a second button it should be in pin 4
 * Check your circuit again to see all the wires are going to the right place.
 * Make sure every library is installed
